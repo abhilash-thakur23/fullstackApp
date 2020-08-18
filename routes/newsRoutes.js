@@ -1,16 +1,15 @@
-let newsDetails = require('../utils/newsDetails')
 module.exports = (app) => {
 
   app.get(`/api/getLatestNews`, async (req, res) => {
-    let res = await axios.get(process.env.GET_TOP_NEWS_URL + '?country=us&category=business&apiKey='+process.env.NEWS_API_TOKEN);
-    console.log('getting res: ',JSON.stringify(res))
-    return res.status(200).send(res);
+    let response = await axios.get(process.env.GET_TOP_NEWS_URL + '?country=us&category=business&apiKey='+process.env.NEWS_API_TOKEN);
+    console.log('getting res: ',JSON.stringify(response))
+    return res.status(200).send(response);
   });
 
   app.post(`/api/getFilteredNews`, async (req, res) => {
     let queryFilters = formatQueryParams(req.body);
-    let res = await axios.get(process.env.GET_EVERYTHING_URL + queryFilters + '&apiKey='+ process.env.NEWS_API_TOKEN);
-    return res.status(200).send(res);
+    let response = await axios.get(process.env.GET_EVERYTHING_URL + queryFilters + '&apiKey='+ process.env.NEWS_API_TOKEN);
+    return res.status(200).send(response);
   })
 
 }

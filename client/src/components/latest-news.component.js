@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import NewsData from './news-data';
 
 export default class LatestNews extends Component {
 
@@ -33,8 +32,8 @@ export default class LatestNews extends Component {
         return (
             <div >
                 <div >
-                    <table className="table table-striped table-dark">
-                        <thead className="thead-dark">
+                    <table>
+                        <thead >
                             <tr>
                                 <td>ID</td>
                             </tr>
